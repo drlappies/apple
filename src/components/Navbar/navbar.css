@@ -1,0 +1,27 @@
+.nav-root {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.8);
+    min-height: 45px;
+    user-select: none;
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+.nav-item-root {
+    color: #f5f5f7;
+    font-size: 12px;
+    opacity: 0.8;
+    cursor: pointer;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.nav-item-root:hover {
+    transition: opacity 0.3s;
+    opacity: 1;
+}
