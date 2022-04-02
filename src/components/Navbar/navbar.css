@@ -6,6 +6,11 @@
     user-select: none;
 }
 
+.nav-root-content-root {
+    display: flex;
+    justify-content: center;
+}
+
 .nav-content {
     display: flex;
     justify-content: space-between;
