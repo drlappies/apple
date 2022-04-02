@@ -53,11 +53,16 @@ const Navbar = () => {
 
             </div>
 
-            {isDropdownOpen &&
-                <NavDropdown>
-                    <div>testuibng</div>
-                </NavDropdown>
-            }
+
+            <NavDropdown isExpanded={isDropdownOpen}>
+                <div>NAV ITEM</div>
+                <div>testuibng</div>
+                <div>testuibng</div>
+                <div>testuibng</div>
+                <div>testuibng</div>
+                <div>testuibng</div>
+            </NavDropdown>
+
         </nav>
     )
 }

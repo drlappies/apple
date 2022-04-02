@@ -4,6 +4,8 @@
     max-height: 45px;
     width: 100%;
     user-select: none;
+    z-index: 9999;
+    position: fixed;
 }
 
 .nav-root-content-root {
@@ -61,7 +63,15 @@
 }
 
 .nav-dropdown-root {
-    display: column;
+    background: rgba(0, 0, 0, 0.8);
+    height: 0vh;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+
+.nav-dropdown-root.expanded {
+    transition: height 0.5s ease;
+    height: 100vh;
 }
 
 @media screen and (max-width: 768px) {
