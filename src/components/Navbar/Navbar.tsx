@@ -6,21 +6,23 @@ import { faAppleWhole, faMagnifyingGlass, faBagShopping } from '@fortawesome/fre
 
 const Navbar = () => {
     return (
-        <div className="nav-root">
-            <NavItem label={<FontAwesomeIcon icon={faAppleWhole} />} to="/" />
-            <NavItem label="Store" to="/store" />
-            <NavItem label="Mac" to="/mac" />
-            <NavItem label="iPad" to="/ipad" />
-            <NavItem label="iPhone" to="/iphone" />
-            <NavItem label="Watch" to="/watch" />
-            <NavItem label="Airpods" to="/airpods" />
-            <NavItem label="TV & Home" to="tvhome" />
-            <NavItem label="Only on Apple" to="onlyapple" />
-            <NavItem label="Accessories" to="accessories" />
-            <NavItem label="Support" to="support" />
-            <NavItem label={<FontAwesomeIcon icon={faMagnifyingGlass} />} to="/" />
-            <NavItem label={<FontAwesomeIcon icon={faBagShopping} />} to="/" />
-        </div>
+        <nav className="nav-root">
+            <div className="nav-content">
+                <NavItem label={<FontAwesomeIcon icon={faAppleWhole} />} to="/" />
+                <NavItem label="Store" to="/store" />
+                <NavItem label="Mac" to="/mac" />
+                <NavItem label="iPad" to="/ipad" />
+                <NavItem label="iPhone" to="/iphone" />
+                <NavItem label="Watch" to="/watch" />
+                <NavItem label="Airpods" to="/airpods" />
+                <NavItem label="TV & Home" to="tvhome" />
+                <NavItem label="Only on Apple" to="onlyapple" />
+                <NavItem label="Accessories" to="accessories" />
+                <NavItem label="Support" to="support" />
+                <NavItem label={<FontAwesomeIcon icon={faMagnifyingGlass} />} to="/" />
+                <NavItem label={<FontAwesomeIcon icon={faBagShopping} />} to="/" />
+            </div>
+        </nav>
     )
 }
 

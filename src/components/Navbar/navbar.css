@@ -1,12 +1,18 @@
 .nav-root {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     background: rgba(0, 0, 0, 0.8);
-    min-height: 45px;
+    height: 45px;
+    max-height: 45px;
+    width: 100%;
+    min-width: 1024px;
     user-select: none;
-    padding-left: 15vw;
-    padding-right: 15vw;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    min-width: 980px;
 }
 
 .nav-item-root {
