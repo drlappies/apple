@@ -1,10 +1,31 @@
 import './navbar.css';
+import { useState, useEffect, useCallback } from 'react';
 import NavItem from './NavItem';
+import NavButton from './NavButton';
+import NavDropdown from './NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAppleWhole, faMagnifyingGlass, faBagShopping } from '@fortawesome/free-solid-svg-icons';
+import { faAppleWhole, faMagnifyingGlass, faBagShopping, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const handleWindowResize = (event: UIEvent) => {
+        const target = event.target as Window;
+        if (target.innerWidth > 768) {
+            setIsDropdownOpen(false);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowResize)
+
+
+        return () => {
+            window.removeEventListener("resize", handleWindowResize)
+        }
+    }, [])
+
     return (
         <nav className="nav-root">
             <div className="nav-content">
@@ -22,6 +43,18 @@ const Navbar = () => {
                 <NavItem label={<FontAwesomeIcon icon={faMagnifyingGlass} />} to="/" />
                 <NavItem label={<FontAwesomeIcon icon={faBagShopping} />} to="/" />
             </div>
+
+            <div className="nav-content-collapsed">
+                <NavButton label={<FontAwesomeIcon icon={isDropdownOpen ? faXmark : faBars} onClick={() => setIsDropdownOpen(prevState => !prevState)} />} />
+                <NavButton label={<FontAwesomeIcon icon={faAppleWhole} onClick={() => console.log("opens navbar")} />} />
+                <NavButton label={<FontAwesomeIcon icon={faBagShopping} />} onClick={() => console.log("opens navbar")} />
+            </div>
+
+            {isDropdownOpen &&
+                <NavDropdown>
+                    <div>testuibng</div>
+                </NavDropdown>
+            }
         </nav>
     )
 }
