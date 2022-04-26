@@ -1,5 +1,5 @@
 import './navbar.css';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import NavItem from './NavItem';
 import NavButton from './NavButton';
 import NavDropdown from './NavDropdown';
@@ -28,7 +28,7 @@ const Navbar = () => {
 
     return (
         <nav className="nav-root">
-            <div className="nav-root-content-root">
+            <div className={`nav-root-content-root ${isDropdownOpen ? "expanded" : ""} `}>
                 <div className="nav-content">
                     <NavItem label={<FontAwesomeIcon icon={faAppleWhole} />} to="/" />
                     <NavItem label="Store" to="/store" />
