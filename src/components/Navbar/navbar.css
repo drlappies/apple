@@ -89,19 +89,33 @@
 }
 
 .nav-dropdown-input-root {
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    display: flex;
+    align-items: center;
+}
+
+.nav-dropdown-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
     border-radius: 8px;
     background-color: #1d1d1f;
-    position: relative;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    transition: all 0.2s;
+}
+
+.nav-dropdown-input-container.focused {
+    transition: all 0.2s;
+    flex-grow: 0.8;
 }
 
 .nav-dropdown-input-logo {
     margin-left: 15px;
     margin-right: 15px;
+    color: rgb(118, 118, 118);
 }
 
 .nav-dropdown-input-logo.clickable {
@@ -115,13 +129,31 @@
 .nav-dropdown-input {
     width: 100%;
     font-size: 17px;
-    height: 1.7em;
+    height: 35px;
     outline: none;
     border: none;
     background-color: transparent;
     -webkit-font-smoothing: antialiased;
     font-synthesis: none;
     color: white;
+}
+
+.nav-dropdown-input-cancel-btn-container {
+    flex-grow: 0.2;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0;
+    width: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.nav-dropdown-input-cancel-btn {
+    color: #2997ff;
+    font-size: 17px;
+    font-weight: 400;
 }
 
 @media screen and (max-width: 768px) {
