@@ -29,7 +29,7 @@ const Navbar = () => {
 
     return (
         <nav className="nav-root">
-            <div className={`nav-root-content-root ${navContext.isDropdownExpanded ? "expanded" : ""} `}>
+            <div className={`nav-root-content-root ${navContext.isDropdownExpanded ? "expanded" : ""} ${navContext.isSearchInputFocus ? "hidden" : ""}`}>
                 <div className="nav-content">
                     <NavItem label={<FontAwesomeIcon icon={faAppleWhole} />} to="/" />
                     <NavItem label="Store" to="/store" />

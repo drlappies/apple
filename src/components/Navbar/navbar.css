@@ -15,6 +15,12 @@
 .nav-root-content-root {
     display: flex;
     justify-content: center;
+    transition: all 0.5s;
+}
+
+.nav-root-content-root.hidden {
+    display: none;
+    transition: all 0.5s;
 }
 
 .nav-content {

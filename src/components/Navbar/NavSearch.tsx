@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { NavContext, INavContext } from '../../contexts/NavContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
 
 const NavSearch = () => {
+    const navContext = useContext(NavContext) as INavContext
     const [search, setSearch] = useState<string>("");
-    const [isFocus, setIsFocus] = useState<boolean>(false);
 
     const handleSearch = (event: any): void => {
         event.preventDefault();
@@ -29,7 +30,7 @@ const NavSearch = () => {
 
     return (
         <div className="nav-dropdown-input-root">
-            <div className={`nav-dropdown-input-container ${isFocus ? "focused" : ""}`}>
+            <div className={`nav-dropdown-input-container ${navContext.isSearchInputFocus ? "focused" : ""}`}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} className={`nav-dropdown-input-logo ${search.trim().length > 0 ? "clickable" : ""}`} onClick={handleSearch} />
                 <input
                     className="nav-dropdown-input"
@@ -42,13 +43,13 @@ const NavSearch = () => {
                     spellCheck="false"
                     value={search}
                     onChange={handleUpdate}
-                    onFocus={() => setIsFocus(true)}
+                    onFocus={() => navContext.setIsSearchInputFocus(true)}
                 />
                 <input id="navbar-search-input" type="hidden" name="navbar-search-input" />
                 <FontAwesomeIcon icon={faCircleXmark} className={`nav-dropdown-input-logo ${search.trim().length > 0 ? "clickable" : "hidden"}`} onClick={handleCancel} />
 
             </div>
-            {isFocus && <button onClick={() => setIsFocus(false)} className="nav-dropdown-input-cancel-btn-container">
+            {navContext.isSearchInputFocus && <button onClick={() => navContext.setIsSearchInputFocus(false)} className="nav-dropdown-input-cancel-btn-container">
                 <span className="nav-dropdown-input-cancel-btn">Cancel</span>
             </button>}
 
