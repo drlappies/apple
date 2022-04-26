@@ -1,5 +1,6 @@
 import './navbar.css';
-import { useState, useEffect } from 'react';
+import { useEffect, useContext, useCallback } from 'react';
+import { NavContext, INavContext } from '../../contexts/NavContext';
 import NavItem from './NavItem';
 import NavButton from './NavButton';
 import NavDropdown from './NavDropdown';
@@ -8,14 +9,14 @@ import { faAppleWhole, faMagnifyingGlass, faBagShopping, faBars, faXmark } from 
 
 
 const Navbar = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const navContext = useContext(NavContext) as INavContext
 
-    const handleWindowResize = (event: UIEvent) => {
+    const handleWindowResize = useCallback((event: UIEvent) => {
         const target = event.target as Window;
         if (target.innerWidth > 768) {
-            setIsDropdownOpen(false);
+            navContext.setIsDropdownExpanded(false)
         }
-    }
+    }, [navContext])
 
     useEffect(() => {
         window.addEventListener('resize', handleWindowResize)
@@ -24,11 +25,11 @@ const Navbar = () => {
         return () => {
             window.removeEventListener("resize", handleWindowResize)
         }
-    }, [])
+    }, [handleWindowResize])
 
     return (
         <nav className="nav-root">
-            <div className={`nav-root-content-root ${isDropdownOpen ? "expanded" : ""} `}>
+            <div className={`nav-root-content-root ${navContext.isDropdownExpanded ? "expanded" : ""} `}>
                 <div className="nav-content">
                     <NavItem label={<FontAwesomeIcon icon={faAppleWhole} />} to="/" />
                     <NavItem label="Store" to="/store" />
@@ -46,7 +47,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="nav-content-collapsed">
-                    <NavButton label={<FontAwesomeIcon icon={isDropdownOpen ? faXmark : faBars} onClick={() => setIsDropdownOpen(prevState => !prevState)} />} />
+                    <NavButton label={<FontAwesomeIcon icon={navContext.isDropdownExpanded ? faXmark : faBars} onClick={() => navContext.setIsDropdownExpanded(prevState => !prevState)} />} />
                     <NavButton label={<FontAwesomeIcon icon={faAppleWhole} onClick={() => console.log("opens navbar")} />} />
                     <NavButton label={<FontAwesomeIcon icon={faBagShopping} />} onClick={() => console.log("opens navbar")} />
                 </div>
@@ -54,7 +55,7 @@ const Navbar = () => {
             </div>
 
 
-            <NavDropdown isExpanded={isDropdownOpen}>
+            <NavDropdown>
                 <div>NAV ITEM</div>
                 <div>testuibng</div>
                 <div>testuibng</div>

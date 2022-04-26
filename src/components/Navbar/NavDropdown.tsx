@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { NavContext, INavContext } from '../../contexts/NavContext';
 import NavSearch from './NavSearch'
 
 interface NavDropDownProps {
     children: JSX.Element[];
-    isExpanded: boolean;
 }
 
 const NavDropdown = (props: NavDropDownProps) => {
-    const { children, isExpanded } = props;
+    const navContext = useContext(NavContext) as INavContext
+    const { children } = props;
 
     return (
-        <div className={`nav-dropdown-root ${isExpanded ? "expanded" : ""} `}>
+        <div className={`nav-dropdown-root ${navContext.isDropdownExpanded ? "expanded" : ""} `}>
             <NavSearch />
             {children}
         </div>

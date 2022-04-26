@@ -1,10 +1,13 @@
 import Navbar from '../components/Navbar/Navbar';
 import { Outlet } from 'react-router-dom'
+import { NavContextProvider } from "../contexts/NavContext";
 
 const Main = () => {
     return (
         <div>
-            <Navbar />
+            <NavContextProvider>
+                <Navbar />
+            </NavContextProvider>
             <Outlet />
         </div>
     )

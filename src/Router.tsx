@@ -12,7 +12,7 @@ const Router = () => {
                     <Route path="store" element={<Store />} />
                 </Route>
             </Routes>
-        </BrowserRouter>
+        </BrowserRouter >
     )
 }
 
