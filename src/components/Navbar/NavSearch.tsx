@@ -49,10 +49,9 @@ const NavSearch = () => {
                 <FontAwesomeIcon icon={faCircleXmark} className={`nav-dropdown-input-logo ${search.trim().length > 0 ? "clickable" : "hidden"}`} onClick={handleCancel} />
 
             </div>
-            {navContext.isSearchInputFocus && <button onClick={() => navContext.setIsSearchInputFocus(false)} className="nav-dropdown-input-cancel-btn-container">
-                <span className="nav-dropdown-input-cancel-btn">Cancel</span>
-            </button>}
-
+            <button onClick={() => navContext.setIsSearchInputFocus(false)} className={`nav-dropdown-input-cancel-btn-container ${navContext.isSearchInputFocus ? "mounted" : ""}`}>
+                Cancel
+            </button>
         </div>
     )
 }

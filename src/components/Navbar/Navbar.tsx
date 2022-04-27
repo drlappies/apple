@@ -14,7 +14,8 @@ const Navbar = () => {
     const handleWindowResize = useCallback((event: UIEvent) => {
         const target = event.target as Window;
         if (target.innerWidth > 768) {
-            navContext.setIsDropdownExpanded(false)
+            navContext.setIsDropdownExpanded(false);
+            navContext.setIsSearchInputFocus(false);
         }
     }, [navContext])
 

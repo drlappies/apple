@@ -15,12 +15,14 @@
 .nav-root-content-root {
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    height: 45px;
     transition: all 0.5s;
 }
 
 .nav-root-content-root.hidden {
-    display: none;
-    transition: all 0.5s;
+    height: 0px;
+    transition: height 0.5s;
 }
 
 .nav-content {
@@ -110,12 +112,6 @@
     flex-grow: 1;
     border-radius: 8px;
     background-color: #1d1d1f;
-    transition: all 0.2s;
-}
-
-.nav-dropdown-input-container.focused {
-    transition: all 0.2s;
-    flex-grow: 0.8;
 }
 
 .nav-dropdown-input-logo {
@@ -145,21 +141,27 @@
 }
 
 .nav-dropdown-input-cancel-btn-container {
-    flex-grow: 0.2;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 0;
     width: 0;
-    border: none;
-    outline: none;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
     background-color: transparent;
     cursor: pointer;
-}
-
-.nav-dropdown-input-cancel-btn {
     color: #2997ff;
     font-size: 17px;
     font-weight: 400;
+    transition: width 0.5s;
+    opacity: 0;
+    margin-left: 0px;
+}
+
+.nav-dropdown-input-cancel-btn-container.mounted {
+    padding: 0;
+    opacity: 1;
+    overflow: visible;
+    width: 10%;
+    margin-left: 5px;
+    transition: width 0.5s;
 }
 
 @media screen and (max-width: 768px) {
