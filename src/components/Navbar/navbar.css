@@ -98,11 +98,12 @@
 
 .nav-dropdown-input-root {
     height: 50px;
-    padding-left: 15px;
-    padding-right: 15px;
-
+    padding: 5px 15px;
     display: flex;
     align-items: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(118, 118, 118);
 }
 
 .nav-dropdown-input-container {
