@@ -3,7 +3,7 @@ import { NavContext, INavContext } from '../../contexts/NavContext';
 import NavSearch from './NavSearch'
 
 interface NavDropDownProps {
-    children: JSX.Element[];
+    children: JSX.Element[] | JSX.Element;
 }
 
 const NavDropdown = (props: NavDropDownProps) => {
@@ -13,7 +13,9 @@ const NavDropdown = (props: NavDropDownProps) => {
     return (
         <div className={`nav-dropdown-root ${navContext.isDropdownExpanded ? "expanded" : ""} `}>
             <NavSearch />
-            {children}
+            <div className="nav-dropdown-content">
+                {children}
+            </div>
         </div>
     )
 }

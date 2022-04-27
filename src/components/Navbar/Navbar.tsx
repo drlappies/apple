@@ -6,6 +6,7 @@ import NavButton from './NavButton';
 import NavDropdown from './NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole, faMagnifyingGlass, faBagShopping, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import NavDropdownItem from './NavDropdownItem';
 
 
 const Navbar = () => {
@@ -56,13 +57,18 @@ const Navbar = () => {
             </div>
 
 
+
             <NavDropdown>
-                <div>NAV ITEM</div>
-                <div>testuibng</div>
-                <div>testuibng</div>
-                <div>testuibng</div>
-                <div>testuibng</div>
-                <div>testuibng</div>
+                <NavDropdownItem label={"Store"} to="/store" />
+                <NavDropdownItem label={"Mac"} to="/mac" />
+                <NavDropdownItem label={"iPad"} to="/ipad" />
+                <NavDropdownItem label={"iPhone"} to="/ipad" />
+                <NavDropdownItem label={"Watch"} to="/watch" />
+                <NavDropdownItem label={"Airpods"} to="/airpods" />
+                <NavDropdownItem label={"TV & Home"} to="/tvhome" />
+                <NavDropdownItem label={"Only on Apple"} to="/onlyapple" />
+                <NavDropdownItem label={"Accessories"} to="/accessories" />
+                <NavDropdownItem label={"Support"} to="/support" />
             </NavDropdown>
 
         </nav>
