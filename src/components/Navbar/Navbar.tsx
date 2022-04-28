@@ -55,22 +55,7 @@ const Navbar = () => {
                 </div>
 
             </div>
-
-
-
-            <NavDropdown>
-                <NavDropdownItem label={"Store"} to="/store" />
-                <NavDropdownItem label={"Mac"} to="/mac" />
-                <NavDropdownItem label={"iPad"} to="/ipad" />
-                <NavDropdownItem label={"iPhone"} to="/ipad" />
-                <NavDropdownItem label={"Watch"} to="/watch" />
-                <NavDropdownItem label={"Airpods"} to="/airpods" />
-                <NavDropdownItem label={"TV & Home"} to="/tvhome" />
-                <NavDropdownItem label={"Only on Apple"} to="/onlyapple" />
-                <NavDropdownItem label={"Accessories"} to="/accessories" />
-                <NavDropdownItem label={"Support"} to="/support" />
-            </NavDropdown>
-
+            <NavDropdown />
         </nav>
     )
 }
